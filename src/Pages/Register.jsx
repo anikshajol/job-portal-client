@@ -32,6 +32,7 @@ const Register = () => {
       if (res.user) {
         console.log(res.user);
         toast.success("Account created successfully");
+        form.reset();
       }
     } catch (error) {
       console.log(error);
