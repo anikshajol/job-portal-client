@@ -1,12 +1,42 @@
 import Lottie from "lottie-react";
 import registerAnime from "../assets/Lottie/register.json";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 const Register = () => {
-  const handleRegister = (e) => {
+  const { createUser } = useAuth();
+
+  const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
-    console.log(userData);
+    const { email, password } = userData;
+
+    // firebase create user with email and password
+
+    // createUser(email, password)
+    //   .then((res) => {
+    //     console.log(res.user);
+    //     if (res.user) {
+    //       toast.success("Account created successfully");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     if (error.code === "auth/email-already-in-use") {
+    //       toast.error("এই ইমেইলটি ইতিপূর্বে ব্যবহার করা হয়েছে।");
+    //     }
+    //   });
+    try {
+      const res = await createUser(email, password);
+      if (res.user) {
+        console.log(res.user);
+        toast.success("Account created successfully");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "Failed to create account");
+    }
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
