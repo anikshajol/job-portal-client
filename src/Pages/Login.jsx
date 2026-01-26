@@ -20,6 +20,7 @@ const Login = () => {
       // console.log(res.user);
       if (res.user) {
         toast.success("Login successfully");
+        form.reset();
       }
     } catch (error) {
       console.log(error);

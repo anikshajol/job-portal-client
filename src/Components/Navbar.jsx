@@ -1,7 +1,19 @@
 import { MdMenu } from "react-icons/md";
 import { Link, NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout success");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const links = (
     <>
       <li>
@@ -30,12 +42,20 @@ const Navbar = () => {
         <ul className="menu font-semibold menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-3">
-        <Link to={"/login"} className=" border-b text-xl font-semibold">
-          Login
-        </Link>
-        <Link to={"/register"} className="btn btn-info font-semibold">
-          Registration
-        </Link>
+        {user ? (
+          <button onClick={handleLogOut} className="btn btn-primary">
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link to={"/login"} className=" border-b text-xl font-semibold">
+              Login
+            </Link>
+            <Link to={"/register"} className="btn btn-info font-semibold">
+              Registration
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
