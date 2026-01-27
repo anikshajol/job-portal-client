@@ -2,6 +2,8 @@ import Lottie from "lottie-react";
 import registerAnime from "../assets/Lottie/register.json";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react";
 const Register = () => {
   const { createUser } = useAuth();
 
@@ -73,7 +75,14 @@ const Register = () => {
               </fieldset>
               {/* button */}
               <fieldset className="fieldset">
-                <button className="btn btn-neutral mt-4">Register</button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onHoverStart={() => console.log("hover started!")}
+                  className="btn btn-neutral mt-4"
+                >
+                  Register
+                </motion.button>
               </fieldset>
             </form>
           </div>
