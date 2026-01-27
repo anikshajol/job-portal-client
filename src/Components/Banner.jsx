@@ -5,7 +5,7 @@ import img2 from "../assets/Img/dream-job-2904780_1920.jpg";
 import { easeIn, easeOut, motion } from "motion/react";
 const Banner = () => {
   return (
-    <div>
+    <>
       <div className="hero bg-base-200 justify-center mx-auto min-h-screen">
         <div className="hero-content justify-center items-center mx-auto flex-col lg:flex-row-reverse">
           <div className="flex-1">
@@ -53,6 +53,7 @@ const Banner = () => {
             </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4 }}
               className="btn btn-primary"
             >
               Get Started
@@ -60,7 +61,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
