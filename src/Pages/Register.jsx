@@ -4,6 +4,8 @@ import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { FaHandPointDown } from "react-icons/fa";
+import SocialLogin from "../Components/SocialLogin";
 const Register = () => {
   const { createUser } = useAuth();
 
@@ -86,6 +88,16 @@ const Register = () => {
               </fieldset>
             </form>
           </div>
+          <section className="flex items-center py-2 space-x-1">
+            <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
+            <h3 className="px-3 text-sm font-semibold dark:text-gray-600 flex justify-center items-center gap-2">
+              Register with social accounts <FaHandPointDown size={20} />
+            </h3>
+            <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
+          </section>
+
+          {/* social icons */}
+          <SocialLogin />
         </div>
       </div>
     </div>

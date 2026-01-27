@@ -51,7 +51,12 @@ const Banner = () => {
             <p className="py-4">
               <small>Find Jobs, Employment & Career Opportunities</small>
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="btn btn-primary"
+            >
+              Get Started
+            </motion.button>
           </div>
         </div>
       </div>
