@@ -1,14 +1,17 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
-const SocialLogin = () => {
+const SocialLogin = ({ form }) => {
   const { loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
   const handleLoginWithGoogle = () => {
     loginWithGoogle()
       .then((res) => {
         if (res.user) {
           toast.success("Login successfully");
+          navigate(form);
         }
       })
       .catch((err) => {

@@ -8,7 +8,7 @@ import { Link } from "react-router";
 const JobCard = ({ job }) => {
   // console.log(Object.keys(job));
 
-  console.log(job);
+  // console.log(job);
 
   const {
     _id,
@@ -81,7 +81,7 @@ const JobCard = ({ job }) => {
             className="card-actions justify-end"
           >
             <Link to={`/jobs/${_id}`}>
-              <button className="btn btn-primary">Apply Now</button>
+              <button className="btn btn-primary">Show Details</button>
             </Link>
           </motion.div>
         </div>

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { RouterProvider } from "react-router";
-import { router } from "./router/router.jsx";
+import { router } from "./routes/router.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 

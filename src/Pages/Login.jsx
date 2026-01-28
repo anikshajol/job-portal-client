@@ -1,13 +1,17 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import SocialLogin from "../Components/SocialLogin";
 import { FaHandPointDown } from "react-icons/fa";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 const Login = () => {
   const { loginUser } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
+  const form = location.state || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,6 +28,7 @@ const Login = () => {
       if (res.user) {
         toast.success("Login successfully");
         form.reset();
+        navigate(form);
       }
     } catch (error) {
       console.log(error);
@@ -116,7 +121,7 @@ const Login = () => {
           </button>
         </div> */}
 
-        <SocialLogin />
+        <SocialLogin form={form} />
 
         <p className="text-xs text-center sm:px-6 dark:text-gray-600">
           Don't have an account?
