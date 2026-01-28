@@ -10,8 +10,8 @@ const Login = () => {
   const { loginUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log(location);
-  const form = location.state || "/";
+  console.log(location);
+  const from = location.state || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const Login = () => {
       if (res.user) {
         toast.success("Login successfully");
         form.reset();
-        navigate(form);
+        navigate(from);
       }
     } catch (error) {
       console.log(error);
@@ -74,7 +74,6 @@ const Login = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onHoverStart={() => console.log("hover started!")}
             className="block btn btn-accent w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600"
           >
             Sign in
@@ -121,7 +120,7 @@ const Login = () => {
           </button>
         </div> */}
 
-        <SocialLogin form={form} />
+        <SocialLogin form={from} />
 
         <p className="text-xs text-center sm:px-6 dark:text-gray-600">
           Don't have an account?
