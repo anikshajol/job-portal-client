@@ -8,23 +8,17 @@ import { Link } from "react-router";
 const JobCard = ({ job }) => {
   // console.log(Object.keys(job));
 
-  // console.log(job);
+  console.log(job);
 
   const {
     _id,
     title,
     location,
     jobType,
-    category,
-    applicationDeadline,
     salaryRange,
     description,
     company,
     requirements,
-    responsibilities,
-    status,
-    hr_email,
-    hr_name,
     company_logo,
   } = job;
   return (
@@ -60,13 +54,13 @@ const JobCard = ({ job }) => {
           </section>
           <p>{description}</p>
           <p>
-            <span className="font-semibold"> Salary:</span> {salaryRange.min}-
-            {salaryRange.max}
-            {salaryRange.currency}
+            <span className="font-semibold"> Salary:</span> {salaryRange?.min}-
+            {salaryRange?.max}
+            {salaryRange?.currency}
           </p>
 
           <div className=" card-actions">
-            {requirements.map((req, index) => (
+            {requirements?.map((req, index) => (
               <div className="badge badge-outline" key={index}>
                 {req}
               </div>

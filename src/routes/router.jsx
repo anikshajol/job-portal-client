@@ -8,6 +8,8 @@ import Spinner from "../Components/Spinner";
 import PrivateRoute from "./PrivateRoute";
 import ApplyNow from "../Pages/ApplyNow";
 import MyApplications from "../Pages/MyApplications";
+import AddJob from "../Pages/Jobs/AddJob";
+import MyPostedJobs from "../Pages/Jobs/MyPostedJobs";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyApplications />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/add-job",
+        element: (
+          <PrivateRoute>
+            <AddJob />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/posted-jobs",
+        element: (
+          <PrivateRoute>
+            <MyPostedJobs />
           </PrivateRoute>
         ),
       },
