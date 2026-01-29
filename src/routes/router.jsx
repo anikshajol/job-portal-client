@@ -7,6 +7,7 @@ import ShowDetails from "../Pages/ShowDetails";
 import Spinner from "../Components/Spinner";
 import PrivateRoute from "./PrivateRoute";
 import ApplyNow from "../Pages/ApplyNow";
+import MyApplications from "../Pages/MyApplications";
 
 export const router = createBrowserRouter([
   {
@@ -26,14 +27,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "/job-apply/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/jobs/${params.id}`),
+
         element: (
           <PrivateRoute>
             <ApplyNow />
           </PrivateRoute>
         ),
         hydrateFallbackElement: <Spinner />,
+      },
+      {
+        path: "/my-applications",
+        element: (
+          <PrivateRoute>
+            <MyApplications />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
