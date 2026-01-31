@@ -27,7 +27,9 @@ const JobList = ({ myJobsPromise }) => {
                 <td>{job.title}</td>
                 <td>{job?.category}</td>
                 <td>
-                  <Link>View Applications</Link>
+                  <Link to={`/applications/${job?._id}`}>
+                    View Applications
+                  </Link>
                 </td>
               </tr>
             ))}
