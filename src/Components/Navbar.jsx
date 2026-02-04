@@ -60,9 +60,15 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-3">
         {user ? (
-          <button onClick={handleLogOut} className="btn btn-primary">
-            Logout
-          </button>
+          <>
+            <button onClick={handleLogOut} className="btn btn-primary">
+              {user?.email}
+            </button>
+
+            <button onClick={handleLogOut} className="btn btn-primary">
+              Logout
+            </button>
+          </>
         ) : (
           <>
             <Link to={"/login"} className=" border-b text-xl font-semibold">

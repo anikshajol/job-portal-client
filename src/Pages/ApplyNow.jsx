@@ -4,10 +4,12 @@ import { useParams } from "react-router";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 const ApplyNow = () => {
   const { id: jobId } = useParams();
   const { user } = useAuth();
+  const [isApplied, setIsApplied] = useState(false);
   console.log(jobId);
 
   const handleApplyApplication = (e) => {
@@ -29,6 +31,7 @@ const ApplyNow = () => {
       .then((res) => {
         // console.log(res);
         if (res.data.insertedId) {
+          setIsApplied(true);
           toast.success("Data added successfully");
         }
       })
@@ -75,9 +78,11 @@ const ApplyNow = () => {
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
             />
           </div>
+
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            disabled={isApplied}
             className="block btn btn-accent w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600"
           >
             Apply

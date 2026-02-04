@@ -8,7 +8,7 @@ import { Link } from "react-router";
 const JobCard = ({ job }) => {
   // console.log(Object.keys(job));
 
-  console.log(job);
+  // console.log(job);
 
   const {
     _id,
