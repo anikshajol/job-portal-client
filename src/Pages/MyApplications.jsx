@@ -6,12 +6,18 @@ import { myApplicationsPromise } from "../api/applications";
 
 const MyApplications = () => {
   const { user } = useAuth();
+  console.log(user.accessToken);
+  const accessToken = user?.accessToken;
+
   return (
     <div>
       <h2>My application</h2>
       <Suspense fallback={<Spinner />}>
         <ApplicationsTable
-          myApplicationsPromise={myApplicationsPromise(user?.email)}
+          myApplicationsPromise={myApplicationsPromise(
+            user?.email,
+            accessToken,
+          )}
         />
       </Suspense>
     </div>

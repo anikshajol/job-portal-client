@@ -1,11 +1,10 @@
 import React from "react";
 
 const ApplicationsTable = ({ application, index }) => {
-  console.log(application);
+  // console.log(application);
 
   return (
     <>
-      {" "}
       <tr>
         <th>{index + 1}</th>
         <td>

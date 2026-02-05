@@ -42,7 +42,6 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
 
       if (currentUser?.email) {
-        const userData = { email: currentUser?.email };
         // fetch("http://localhost:5000/jwt", {
         //   method: "POST",
         //   headers: {
@@ -59,15 +58,11 @@ const AuthProvider = ({ children }) => {
         //   .catch((err) => {
         //     console.log(err);
         //   });
+        const email = { email: currentUser?.email };
 
         axios
-          .post("http://localhost:5000/jwt", userData, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log(res.data);
-            // const token = res.data.token;
-          })
+          .post(`http://localhost:5000/jwt`, email, { withCredentials: true })
+          .then((res) => console.log(res.data))
           .catch((err) => console.log(err));
       }
     });

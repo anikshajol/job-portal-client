@@ -25,7 +25,6 @@ const ApplicationsList = ({ myApplicationsPromise }) => {
             </tr>
           </thead>
           <tbody>
-            {" "}
             {myApplications.map((application, index) => (
               <ApplicationsTable
                 key={application._id}
